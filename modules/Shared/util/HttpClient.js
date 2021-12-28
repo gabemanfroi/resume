@@ -4,7 +4,7 @@ import { camelizeKeys } from 'humps';
 class HttpClient {
   constructor() {
     this.axiosInstance = axios.create({
-        baseURL: process.env.BASE_URL,
+        baseURL: 'https://showcase-me-backend.heroku.app',
         headers: {
           'Content-Type': 'application/json',
         },
