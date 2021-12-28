@@ -7,6 +7,7 @@ class HttpClient {
         baseURL: 'https://showcase-me-backend.herokuapp.com',
         headers: {
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
         },
       },
     );
