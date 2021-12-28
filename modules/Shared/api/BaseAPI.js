@@ -10,7 +10,7 @@ export default class BaseAPI {
   }
 
   getById(id) {
-    return HttpClient.axiosInstance.get(`${this.baseEndpoint}/${id}`);
+    return HttpClient.axiosInstance.get(`${this.baseEndpoint}/${id}/`);
   }
 
   post(data) {
