@@ -9,6 +9,10 @@ export default class BaseAPI {
     return HttpClient.axiosInstance.get(this.baseEndpoint);
   }
 
+  getById(id) {
+    return HttpClient.axiosInstance.get(`${this.baseEndpoint}/${id}`);
+  }
+
   post(data) {
     return HttpClient.axiosInstance.post(this.baseEndpoint, data);
   }
@@ -16,6 +20,7 @@ export default class BaseAPI {
   put(data) {
     return HttpClient.axiosInstance.put(`${this.baseEndpoint}/${data.id}`, data);
   }
+
 
   delete(id) {
     return HttpClient.axiosInstance.delete(`${this.baseEndpoint}/${id}`);

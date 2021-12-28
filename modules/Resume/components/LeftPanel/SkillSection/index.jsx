@@ -8,7 +8,7 @@ const SkillSection = ({ title, skills }) => {
       <h5>{title}</h5>
       {skills.length &&
         skills.map((skill, index) => <Skill type='linear' name={skill.name} key={index}
-                                            proficiency={skill.proficiency} />)}
+                                            proficiency={parseInt(skill.proficiency * 10)} />)}
 
     </Container>
   );
