@@ -42,7 +42,7 @@ const MainContent = () => {
       setIteration(iteration + 1);
     }
 
-  }, [texts, iteration]);
+  }, [iteration]);
 
   return (
     <Container>

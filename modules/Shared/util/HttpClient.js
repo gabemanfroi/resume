@@ -4,7 +4,7 @@ import { camelizeKeys } from 'humps';
 class HttpClient {
   constructor() {
     this.axiosInstance = axios.create({
-        baseURL: 'http://localhost:8000',
+        baseURL: process.env.NEXT_PUBLIC_BASE_URL,
         headers: {
           'Content-Type': 'application/json',
         },
