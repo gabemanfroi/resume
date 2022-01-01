@@ -33,7 +33,7 @@ export const AvatarContainer = styled.div`
   width: 35%;
   padding-bottom: 35%;
   border-radius: 50%;
-  background: url("${({ user }) => user.profilePicture}");
+  background: url("${({ createdBy }) => createdBy.profilePicture}");
   background-size: cover;
   margin-bottom: 8px;
 

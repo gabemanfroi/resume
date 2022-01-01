@@ -6,11 +6,14 @@ import Portfolio from './Portfolio';
 import Blog from './Blog';
 import MyHistory from './MyHistory';
 import HeroBanner from './HeroBanner';
+import { WebsiteContentContext } from '../../contexts/WebsiteContentContext';
 
 
 const MainContent = () => {
   const { isActive: isSidebarActive, currentPage } = useContext(SidebarContext);
   const { screenSize } = useContext(ScreenSizeContext);
+  const { currentPersonContent } = useContext(WebsiteContentContext);
+  const { backgroundImage } = currentPersonContent;
 
   const pagesMapper = {
     Portfolio: <Portfolio />,
@@ -21,7 +24,7 @@ const MainContent = () => {
   return (
     <>
       {
-        <Container isSidebarActive={isSidebarActive}>
+        <Container backgroundImage={backgroundImage} isSidebarActive={isSidebarActive}>
           <div className='container-background' />
           {screenSize >= 992 && <Divider />}
           <HeroBanner />

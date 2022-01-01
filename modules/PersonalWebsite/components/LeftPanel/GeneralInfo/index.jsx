@@ -4,7 +4,7 @@ import { WebsiteContentContext } from '../../../contexts/WebsiteContentContext';
 
 const GeneralInfo = () => {
   const { currentPersonContent } = useContext(WebsiteContentContext);
-  const { additionalInformation } = currentPersonContent.user;
+  const { additionalInformation } = currentPersonContent.createdBy;
 
   return (
     <Container>

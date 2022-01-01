@@ -4,6 +4,7 @@ import { WebsiteContentContext } from '../../../contexts/WebsiteContentContext';
 
 const HeroBanner = () => {
   const { currentPersonContent } = useContext(WebsiteContentContext);
+  const { backgroundImage } = currentPersonContent;
 
   const [carrouselTexts] = useState(currentPersonContent.carrouselItems);
   const [textBeingRotated, setTextBeingRotated] = useState('');
@@ -40,13 +41,13 @@ const HeroBanner = () => {
   }, [iteration, carrouselTexts]);
 
   return (
-    <Container>
+    <Container backgroundImage={backgroundImage}>
       <div className='overlay'>
         <h1>
           <span>Hi,</span>
           <br />
           <span>
-            I am {currentPersonContent.resume.user.firstName}!
+            I am {currentPersonContent.createdBy.firstName}!
             </span>
           <br />
           <span>

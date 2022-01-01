@@ -12,7 +12,7 @@ const Footer = () => {
     facebook: faFacebook,
   };
   const { currentPersonContent } = useContext(WebsiteContentContext);
-  const { websites } = currentPersonContent.user;
+  const { websites } = currentPersonContent.createdBy;
   return (
     <Container>
       {

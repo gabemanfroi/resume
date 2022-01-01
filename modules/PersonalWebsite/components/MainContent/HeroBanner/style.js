@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.section`
   width: 100%;
   position: relative;
-  background-image: url('/assets/images/hero_background.jpg');
+  background-image: url(${({ backgroundImage }) => backgroundImage || '/assets/images/hero_background.jpg'});
   background-size: 100% 100%;
   background-repeat: no-repeat;
   box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%);

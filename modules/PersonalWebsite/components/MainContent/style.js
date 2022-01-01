@@ -29,7 +29,7 @@ export const Container = styled.main`
 
     width: 100%;
     position: absolute;
-    background-image: url('/assets/images/hero_background.jpg');
+    background-image: url(${({ backgroundImage }) => backgroundImage || '/assets/images/hero_background.jpg'});
     background-size: 100% 40%;
     background-repeat: no-repeat;
     background-position: 0 0;

@@ -7,14 +7,14 @@ import { ScreenSizeContext } from '../../../../Shared/contexts/ScreenSizeContext
 import { LeftPanelContext } from '../../../../Shared/contexts/LeftPanelContext';
 
 const Header = () => {
-  const { user } = useContext(WebsiteContentContext).currentPersonContent;
+  const { createdBy } = useContext(WebsiteContentContext).currentPersonContent;
   const { screenSize } = useContext(ScreenSizeContext);
   const { setIsActive } = useContext(LeftPanelContext);
   return (
     <Container>
-      <AvatarContainer user={user} />
-      <span>{user.firstName} {user.lastName}</span>
-      <span>{user.professionalTitle}</span>
+      <AvatarContainer createdBy={createdBy} />
+      <span>{createdBy.firstName} {createdBy.lastName}</span>
+      <span>{createdBy.professionalTitle}</span>
       {screenSize < 992 &&
         (<button onClick={() => setIsActive(false)}>
           <FontAwesomeIcon icon={faTimes} />
