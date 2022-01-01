@@ -3,8 +3,6 @@ import { useContext } from 'react';
 import { SidebarContext } from '../../../Shared/contexts/SidebarContext';
 import { ScreenSizeContext } from '../../../Shared/contexts/ScreenSizeContext';
 import Portfolio from './Portfolio';
-import Blog from './Blog';
-import MyHistory from './MyHistory';
 import HeroBanner from './HeroBanner';
 import { WebsiteContentContext } from '../../contexts/WebsiteContentContext';
 
@@ -17,8 +15,7 @@ const MainContent = () => {
 
   const pagesMapper = {
     Portfolio: <Portfolio />,
-    Blog: <Blog />,
-    'My History': <MyHistory />,
+
   };
 
   return (
