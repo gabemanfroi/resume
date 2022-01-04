@@ -3,8 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons/faEllipsisH';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 import { useContext } from 'react';
-import { LeftPanelContext } from '../../contexts/LeftPanelContext';
-import { SidebarContext } from '../../contexts/SidebarContext';
+
+import { LeftPanelContext } from 'modules/Shared/contexts/LeftPanelContext';
+import { SidebarContext } from 'modules/Shared/contexts/SidebarContext';
 
 const AppBar = () => {
   const { setIsActive: setLeftPanelIsActive, isActive: leftPanelIsActive } = useContext(LeftPanelContext);

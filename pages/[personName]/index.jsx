@@ -3,12 +3,14 @@ import { useContext, useEffect } from 'react';
 import { animated, Spring } from 'react-spring';
 
 import { PersonalWebsiteContainer } from '/modules/PersonalWebsite/style';
-import { LeftPanel, MainContent } from '/modules/PersonalWebsite/components';
+import { MainContent } from '/modules/PersonalWebsite/components';
+
 import { WebsiteContentContext } from '/modules/PersonalWebsite/contexts/WebsiteContentContext';
 import Sidebar from '/modules/PersonalWebsite/components/Sidebar';
 import { LoadingContext } from '/modules/Shared/contexts/LoadingContext';
-import { ScreenSizeContext } from '../modules/Shared/contexts/ScreenSizeContext';
-import AppBar from '../modules/Shared/components/AppBar';
+import { ScreenSizeContext } from '../../modules/Shared/contexts/ScreenSizeContext';
+import AppBar from '../../modules/Shared/components/AppBar';
+import LeftPanel from '../../modules/Shared/components/LeftPanel';
 
 
 const PersonalWebsite = () => {
@@ -43,7 +45,6 @@ const PersonalWebsite = () => {
             }
           </Spring>
         }
-
       </PersonalWebsiteContainer>
     </>
   );

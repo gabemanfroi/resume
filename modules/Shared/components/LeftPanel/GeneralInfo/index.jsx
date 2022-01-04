@@ -1,6 +1,8 @@
-import { Container } from './style';
 import { useContext } from 'react';
-import { WebsiteContentContext } from '../../../contexts/WebsiteContentContext';
+
+import { WebsiteContentContext } from 'modules/PersonalWebsite/contexts/WebsiteContentContext';
+
+import { Container } from './style';
 
 const GeneralInfo = () => {
   const { currentPersonContent } = useContext(WebsiteContentContext);

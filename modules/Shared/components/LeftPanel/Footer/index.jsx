@@ -1,8 +1,10 @@
-import { Container } from './style';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
+
 import { WebsiteContentContext } from '/modules/PersonalWebsite/contexts/WebsiteContentContext';
+
+import { Container } from './style';
 
 const Footer = () => {
   const iconsMapper = {

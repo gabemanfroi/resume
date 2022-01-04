@@ -8,7 +8,7 @@ import { animated, useSpring } from 'react-spring';
 
 
 const Sidebar = () => {
-  const { isActive, setCurrentPage, currentPage, pages } = useContext(SidebarContext);
+  const { isActive, setIsActive, setCurrentPage, currentPage, pages } = useContext(SidebarContext);
   const { screenSize } = useContext(ScreenSizeContext);
 
   const isCurrentPageActive = (page) => {
@@ -31,8 +31,13 @@ const Sidebar = () => {
       duration: 200,
     },
   });
-  return (
 
+  const onMenuItemClick = (page) => {
+    setCurrentPage(page);
+    setIsActive(false);
+  };
+
+  return (
     <>
       {(isActive || screenSize >= 992) &&
         <Container as={animated.div} screenSize={screenSize} isActive={isActive} style={springProps}>
@@ -44,7 +49,7 @@ const Sidebar = () => {
           <NavContainer isActive={isActive}>
             <ul>
               {pages.map((page, index) => <li key={index}
-                                              onClick={() => setCurrentPage(page)}
+                                              onClick={() => onMenuItemClick(page)}
                                               className={isCurrentPageActive(page)}>{page}</li>)}
             </ul>
           </NavContainer>

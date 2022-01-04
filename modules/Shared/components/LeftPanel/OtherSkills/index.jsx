@@ -1,8 +1,10 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { Container, OtherSkill } from './style';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
+
 import { WebsiteContentContext } from '/modules/PersonalWebsite/contexts/WebsiteContentContext';
+
+import { Container, OtherSkill } from './style';
 
 const OtherSkills = () => {
   const { techSkills } = useContext(WebsiteContentContext).currentPersonContent.resume;

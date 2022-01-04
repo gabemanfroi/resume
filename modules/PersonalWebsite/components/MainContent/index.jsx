@@ -1,10 +1,13 @@
 import { Container, Divider, HeroContent } from './style';
 import { useContext } from 'react';
-import { SidebarContext } from '../../../Shared/contexts/SidebarContext';
+import { SidebarContext } from 'modules/Shared/contexts/SidebarContext';
 import { ScreenSizeContext } from '../../../Shared/contexts/ScreenSizeContext';
 import Portfolio from './Portfolio';
 import HeroBanner from './HeroBanner';
 import { WebsiteContentContext } from '../../contexts/WebsiteContentContext';
+import Blog from './Blog';
+import MyHistory from './MyHistory';
+import { BlogProvider } from '../../contexts/BlogContext';
 
 
 const MainContent = () => {
@@ -15,7 +18,20 @@ const MainContent = () => {
 
   const pagesMapper = {
     Portfolio: <Portfolio />,
+    Blog: (<BlogProvider><Blog /></BlogProvider>),
+    'My History': <MyHistory />,
+  };
 
+  const getBanner = () => {
+    if (currentPage === 'Portfolio') {
+      if (screenSize >= 992) {
+        return <>
+          <Divider />
+          <HeroBanner />
+        </>;
+      }
+      return <HeroBanner />;
+    }
   };
 
   return (
@@ -23,8 +39,7 @@ const MainContent = () => {
       {
         <Container backgroundImage={backgroundImage} isSidebarActive={isSidebarActive}>
           <div className='container-background' />
-          {screenSize >= 992 && <Divider />}
-          <HeroBanner />
+          {getBanner()}
           <HeroContent>
             {
               pagesMapper[currentPage]

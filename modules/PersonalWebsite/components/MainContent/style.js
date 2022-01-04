@@ -78,8 +78,9 @@ export const HeroContent = styled.div`
   position: relative;
   margin-top: 30px;
   width: 100%;
+  height: 100%;
 
-  h3 {
+  h3, h1 {
     margin-bottom: 16px;
     @media screen and (max-width: 600px) {
       text-align: center;

@@ -1,13 +1,16 @@
-import { Container, Content } from './style';
-import Languages from './Languages';
-import Coding from './Coding';
-import GeneralInfo from './GeneralInfo';
-import OtherSkills from './OtherSkills';
-import Footer from './Footer';
 import { useContext } from 'react';
-import { LeftPanelContext } from '../../../Shared/contexts/LeftPanelContext';
-import { ScreenSizeContext } from '../../../Shared/contexts/ScreenSizeContext';
+
+import { LeftPanelContext } from 'modules/Shared/contexts/LeftPanelContext';
+import { ScreenSizeContext } from 'modules/Shared/contexts/ScreenSizeContext';
+
+import Coding from './Coding';
+import Footer from './Footer';
 import Header from './Header';
+import GeneralInfo from './GeneralInfo';
+import Languages from './Languages';
+import OtherSkills from './OtherSkills';
+
+import { Container, Content } from './style';
 
 const LeftPanel = () => {
   const { isActive } = useContext(LeftPanelContext);

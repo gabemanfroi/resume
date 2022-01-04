@@ -7,28 +7,22 @@ export const Container = styled.div`
     flex-wrap: wrap;
     flex-basis: 100%;
 
-
     .project-item-container {
-      width: 100%;
+      flex: 1 0 100%;
       padding: 16px;
+      margin-bottom: 30px;
 
       @media screen and (max-width: 600px) {
         padding: unset;
       }
 
       @media screen and (min-width: 600px) {
-        width: 50%;
+        flex: 1 0 50%;
       }
 
       @media screen and (min-width: 992px) {
-        width: 33%;
-
+        flex: 1 0 33%
       }
-
-      @media screen and (min-width: 1200px) {
-
-      }
-
 
       &::after {
         display: block;

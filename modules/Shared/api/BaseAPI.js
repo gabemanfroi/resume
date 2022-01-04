@@ -13,6 +13,10 @@ export default class BaseAPI {
     return HttpClient.axiosInstance.get(`${this.baseEndpoint}/${id}/`);
   }
 
+  getDynamicRoute(url) {
+    return HttpClient.axiosInstance.get(url);
+  }
+
   post(data) {
     return HttpClient.axiosInstance.post(this.baseEndpoint, data);
   }

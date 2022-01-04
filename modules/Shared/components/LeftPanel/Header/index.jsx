@@ -1,10 +1,12 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-import { AvatarContainer, Container } from './style';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
-import { WebsiteContentContext } from '../../../contexts/WebsiteContentContext';
-import { ScreenSizeContext } from '../../../../Shared/contexts/ScreenSizeContext';
-import { LeftPanelContext } from '../../../../Shared/contexts/LeftPanelContext';
+
+import { WebsiteContentContext } from 'modules/PersonalWebsite/contexts/WebsiteContentContext';
+import { ScreenSizeContext } from 'modules/Shared/contexts/ScreenSizeContext';
+import { LeftPanelContext } from 'modules/Shared/contexts/LeftPanelContext';
+
+import { AvatarContainer, Container } from './style';
 
 const Header = () => {
   const { createdBy } = useContext(WebsiteContentContext).currentPersonContent;

@@ -14,7 +14,7 @@ export const PersonalWebsiteProvider = ({ children }) => {
   useEffect(() => {
     if (!currentPersonName) return;
     setIsLoading(true);
-    
+
     PersonalWebsiteAPI.getById(currentPersonName).then(response => {
       setCurrentPersonContent(response[0]);
       setIsLoading(false);

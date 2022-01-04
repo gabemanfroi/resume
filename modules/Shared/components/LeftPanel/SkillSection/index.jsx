@@ -1,5 +1,6 @@
-import { Container } from './style';
 import Skill from '../Skill';
+
+import { Container } from './style';
 
 const SkillSection = ({ title, skills }) => {
 
