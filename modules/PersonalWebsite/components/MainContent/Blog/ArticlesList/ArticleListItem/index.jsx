@@ -6,6 +6,7 @@ const ArticleListItem = ({ article }) => {
   const { setSelectedArticle } = useContext(BlogContext);
 
   return (
+    
     <Container key={article.id}>
       <image alt={`imagem de fundo do artigo ${article.title}`} src={article.image} />
       <div className='article-content'>
