@@ -7,14 +7,14 @@ export const PersonalWebsiteContainer = styled.main`
   display: flex;
 
   @media screen and (max-width: 600px) {
-    
+
   }
 
   @media screen and (min-width: 600px) {
 
   }
 
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 1440px) {
     padding: 1rem 3rem;
 
   }

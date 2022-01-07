@@ -9,6 +9,7 @@ const ArticlesList = () => {
 
   return (
     <Container>
+
       <h1>Blog</h1>
       <div className='articles-container'>
         {

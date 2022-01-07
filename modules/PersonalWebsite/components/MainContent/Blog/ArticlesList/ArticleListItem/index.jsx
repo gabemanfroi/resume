@@ -6,14 +6,11 @@ const ArticleListItem = ({ article }) => {
   const { setSelectedArticle } = useContext(BlogContext);
 
   return (
-    
-    <Container key={article.id}>
-      <image alt={`imagem de fundo do artigo ${article.title}`} src={article.image} />
+
+    <Container key={article.id} articleImage={article.image}>
+      <div className='image-container' onClick={() => setSelectedArticle(article)} />
       <div className='article-content'>
-        <div className='tags'>
-          {article.subjects.map(subject => <Tag key={subject.id} tagColor={subject.tagColor}
-                                                className='tag'>{subject.title} </Tag>)}
-        </div>
+
         <div className='general'>
                   <span>
                     {new Date(article.createdAt).toLocaleDateString('pt-BR')}
@@ -26,11 +23,12 @@ const ArticleListItem = ({ article }) => {
           <p className='description'>
             {article.content}
           </p>
-          <span className='read-more' onClick={() => {
-            console.log(article);
-            setSelectedArticle(article);
-          }}>
-                  Read More ${'>'}
+          <div className='tags'>
+            {article.subjects.map(subject => <Tag key={subject.id} tagColor={subject.tagColor}
+                                                  className='tag'>{subject.title} </Tag>)}
+          </div>
+          <span className='read-more' onClick={() => setSelectedArticle(article)}>
+                  Read More {'>'}
           </span>
         </div>
       </div>

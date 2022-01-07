@@ -13,7 +13,7 @@ export const Container = styled.header`
   transition: opacity 0.55s;
   z-index: 999;
 
-  @media screen and (max-width: 992px) {
+  @media screen and (max-width: 1024px) {
     height: 70px;
   }
 `;

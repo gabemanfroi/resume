@@ -17,7 +17,7 @@ const Header = () => {
       <AvatarContainer createdBy={createdBy} />
       <span>{createdBy.firstName} {createdBy.lastName}</span>
       <span>{createdBy.professionalTitle}</span>
-      {screenSize < 992 &&
+      {screenSize < 1440 &&
         (<button onClick={() => setIsActive(false)}>
           <FontAwesomeIcon icon={faTimes} />
         </button>)

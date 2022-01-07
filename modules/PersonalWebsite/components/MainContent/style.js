@@ -7,23 +7,24 @@ export const Container = styled.main`
   transition: all ease 0.55s;
   margin-top: 70px;
 
+
   @media screen and (max-width: 600px) {
   }
 
   @media screen and (min-width: 600px) {
   }
 
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 1024px) {
+    height: 100%;
+  }
+
+  @media screen and (min-width: 1440px) {
     padding: 24px;
     margin-left: ${props => props.isSidebarActive ? '12%' : '20%'};
-    height: 100%;
     margin-top: 0;
     overflow-y: scroll;
-
   }
 
-  @media screen and (min-width: 1200px) {
-  }
 
   .container-background {
 

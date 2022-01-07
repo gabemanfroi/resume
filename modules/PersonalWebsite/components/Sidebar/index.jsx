@@ -19,7 +19,7 @@ const Sidebar = () => {
     if (screenSize < 600) {
       return isActive ? '90%' : '0';
     }
-    if (screenSize < 992) {
+    if (screenSize < 1440) {
       return isActive ? '40%' : '0';
     }
     return isActive ? '20%' : '7%';
@@ -39,7 +39,7 @@ const Sidebar = () => {
 
   return (
     <>
-      {(isActive || screenSize >= 992) &&
+      {(isActive || screenSize >= 1440) &&
         <Container as={animated.div} screenSize={screenSize} isActive={isActive} style={springProps}>
           <ToggleButton />
           <div className='current-page-container'>

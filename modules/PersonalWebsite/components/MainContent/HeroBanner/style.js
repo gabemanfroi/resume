@@ -49,7 +49,7 @@ export const Container = styled.section`
       }
 
       @media screen and (min-width: 600px) {
-        font-size: 6vw;
+        font-size: 4vw;
       }
 
       @media screen and (min-width: 992px) {

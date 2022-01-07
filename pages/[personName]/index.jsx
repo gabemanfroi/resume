@@ -37,7 +37,7 @@ const PersonalWebsite = () => {
           <Spring from={{ opacity: 0 }} to={{ opacity: 1 }} config={{ duration: 2000 }}>
             {styles =>
               <animated.div className='inner-container' style={styles}>
-                {screenSize < 992 && <AppBar />}
+                {screenSize <= 1024 && <AppBar />}
                 <LeftPanel />
                 <MainContent />
                 <Sidebar />

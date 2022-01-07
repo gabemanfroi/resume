@@ -5,28 +5,29 @@ export const Container = styled.article`
   display: flex;
   flex: 1 0 100%;
   flex-direction: column;
-  background: url(${({ articleImage }) => articleImage});
-  background-size: cover;
-  height: 100%;
   margin-bottom: 30px;
-  box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%);
+  height: 80%;
+  padding: 16px;
 
-
-  @media screen and (max-width: 600px) {
-
-  }
   @media screen and (min-width: 600px) {
+    height: 100%;
   }
   @media screen and (min-width: 992px) {
+    height: 70%;
+    flex: 0 0 50%;
   }
 
-  img {
+  .image-container {
     width: 100%;
     height: 40%;
+    background: url('${({ articleImage }) => articleImage}');
+    background-size: cover;
+    box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%);
+    object-fit: cover;
     @media screen and (max-width: 600px) {
-
     }
     @media screen and (min-width: 600px) {
+      height: 100%;
     }
     @media screen and (min-width: 992px) {
     }
@@ -34,31 +35,36 @@ export const Container = styled.article`
 
   .article-content {
     flex: 1 1;
+    box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%);
+
     background: linear-gradient(159deg, #2d2d3a 0%, #2b2b35 100%);
     padding: 30px;
     display: flex;
     flex-direction: column;
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-
-
-      margin-bottom: 8px;
-    }
-
     .general {
-      width: 100%;
       background: #20202A;
-      height: 20%;
-      padding: 3%;
-      border-radius: 5px;
+      border-radius: 999px;
       margin-bottom: 8px;
+      display: flex;
+      justify-content: flex-end;
+      margin-right: auto;
+
+      @media screen and (max-width: 600px) {
+        padding: 0 15px;
+      }
+      @media screen and (min-width: 601px) {
+        padding: 5px 15px;
+        margin-right: auto;
+      }
+      @media screen and (min-width: 992px) {
+      }
 
       span {
-        color: #FAFAFC;
-        font-weight: 300;
+        color: #8C8C8E;
+        font-weight: 500;
         font-size: 12px;
+
       }
     }
 
@@ -74,6 +80,16 @@ export const Container = styled.article`
       width: 100%;
       justify-content: space-between;
       flex: 1 0;
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        align-self: flex-end;
+        flex-direction: row;
+        margin-bottom: 8px;
+        width: 100%;
+        justify-content: flex-end;
+      }
 
       p.description {
         font-size: 13px;
