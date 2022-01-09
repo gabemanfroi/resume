@@ -9,7 +9,6 @@ import { Container, OtherSkill } from './style';
 const OtherSkills = () => {
   const { techSkills } = useContext(WebsiteContentContext).currentPersonContent.resume;
 
-
   return (
     <Container>
       <h5>Other Skills</h5>

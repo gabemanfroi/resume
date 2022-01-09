@@ -1,5 +1,10 @@
+import { Container } from './style';
+import EducationHistory from './EducationHistory';
+
 const MyHistory = () => {
-  return <h1>My History</h1>;
+  return <Container>
+    <EducationHistory />
+  </Container>;
 };
 
 export default MyHistory;

@@ -11,7 +11,6 @@ import OtherSkills from './OtherSkills';
 
 import { Container, Content } from './style';
 import { WebsiteContentContext } from '../../../PersonalWebsite/contexts/WebsiteContentContext';
-import SkillSection from './SkillSection';
 import Footer from './Footer';
 
 const LeftPanel = () => {
@@ -32,11 +31,6 @@ const LeftPanel = () => {
             <Languages />
             <Coding />
             <OtherSkills />
-            {
-              customSkillCategoriesToBeUsed.length && customSkillCategoriesToBeUsed.map((c, index) => <SkillSection
-                key={index}
-                title={c.name} skills={c.customSkillCategorySkills} />)
-            }
           </Content>
           <Footer />
         </Container>
