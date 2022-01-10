@@ -9,6 +9,10 @@ export const Container = styled.article`
   height: 80%;
   padding: 16px;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   @media screen and (min-width: 600px) {
     height: 100%;
   }
