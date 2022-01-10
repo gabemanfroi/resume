@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { WebsiteContentContext } from '/modules/PersonalWebsite/contexts/WebsiteContentContext';
 
 import { Container } from './style';
+import { faFileAlt } from '@fortawesome/free-solid-svg-icons/faFileAlt';
 
 const Footer = () => {
   const iconsMapper = {
@@ -14,9 +15,15 @@ const Footer = () => {
     facebook: faFacebook,
   };
   const { currentPersonContent } = useContext(WebsiteContentContext);
-  const { websites } = currentPersonContent.createdBy;
+  const { websites, resumeFile } = currentPersonContent.createdBy;
+
   return (
     <Container>
+      {
+        resumeFile && <a href={resumeFile} download rel='noreferrer'>
+          <FontAwesomeIcon icon={faFileAlt} />
+        </a>
+      }
       {
         websites.length > 0 && websites.map(website =>
           <a key={website.id} href={website.url} target='_blank' rel='noreferrer'>
