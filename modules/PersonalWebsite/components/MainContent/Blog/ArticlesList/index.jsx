@@ -13,8 +13,8 @@ const ArticlesList = () => {
       <h1>Blog</h1>
       <div className='articles-container'>
         {
-          articles.map((article, index) => (
-            <ArticleListItem key={index} article={article} />
+          articles.map(article => (
+            <ArticleListItem key={article.id} article={article} />
           ))
         }
       </div>

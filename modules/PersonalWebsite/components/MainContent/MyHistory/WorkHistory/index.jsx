@@ -30,14 +30,14 @@ const WorkHistory = () => {
         workExperiences.length > 0 &&
         <VerticalTimeline layout={'1-column-right'} lineColor={'#191923'}>
           {workExperiences.map(we => (
-            <VerticalTimelineElement contentStyle={{ ...timelineContentStyle }}
+            <VerticalTimelineElement key={we.id} contentStyle={{ ...timelineContentStyle }}
                                      contentArrowStyle={{ ...contentArrowStyle }}
                                      className={'timeline-item-content'}
                                      iconStyle={{ ...iconStyle }}>
               <h5 className='timeline-header'>{we.companyName}</h5>
               <span className='timeline-subtitle'>{we.role}</span>
-              <div className='time-range'>jan 2018 - may 2020</div>
-              <div className='description'>{we.role}</div>
+              <div className='time-range'>from {we.startDate} to {we.current ? 'Now' : we.endDate}</div>
+              <div className='description' />
             </VerticalTimelineElement>
           ))
 

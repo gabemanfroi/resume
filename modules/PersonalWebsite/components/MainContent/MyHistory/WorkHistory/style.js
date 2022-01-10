@@ -27,7 +27,12 @@ export const Container = styled.div`
       padding: 5px 15px;
       border-radius: 999px;
       margin-bottom: 15px;
-      margin-right: auto;
+
+      @media screen and (min-width: 1200px) {
+        width: 50%;
+      }
+
+
     }
 
     .time-range, .description, .timeline-subtitle {

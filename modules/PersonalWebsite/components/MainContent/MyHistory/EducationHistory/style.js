@@ -14,8 +14,6 @@ export const Container = styled.div`
 
     }
 
-    .timeline-subtitle {
-    }
 
     .time-range {
       font-size: 12px;
@@ -24,6 +22,9 @@ export const Container = styled.div`
       padding: 5px 15px;
       border-radius: 999px;
       margin-bottom: 15px;
+      @media screen and (min-width: 1200px) {
+        width: 50%;
+      }
     }
 
     .time-range, .description {

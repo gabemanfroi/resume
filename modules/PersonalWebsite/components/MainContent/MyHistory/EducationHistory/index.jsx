@@ -32,12 +32,12 @@ const EducationHistory = () => {
 
           {
             educationHistoryItems.map(item => (
-              <VerticalTimelineElement contentStyle={{ ...timelineContentStyle }}
+              <VerticalTimelineElement key={item.id} contentStyle={{ ...timelineContentStyle }}
                                        contentArrowStyle={{ ...contentArrowStyle }}
                                        className={'timeline-item-content'}
                                        iconStyle={{ ...iconStyle }}>
                 <h5 className='timeline-header'>{item.institutionName}</h5>
-                <div className='time-range'>jan 2018 - may 2020</div>
+                <div className='time-range'>from {item.startDate} to {item.endDate}</div>
                 <div className='description'>{item.graduationName}</div>
               </VerticalTimelineElement>
 

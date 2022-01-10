@@ -18,8 +18,8 @@ const Footer = () => {
   return (
     <Container>
       {
-        websites.length > 0 && websites.map((website, index) =>
-          <a key={index} href={website.url} target='_blank' rel='noreferrer'>
+        websites.length > 0 && websites.map(website =>
+          <a key={website.id} href={website.url} target='_blank' rel='noreferrer'>
             <FontAwesomeIcon icon={iconsMapper[website.category.toLowerCase()]} />
           </a>,
         )
