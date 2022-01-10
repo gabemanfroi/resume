@@ -9,9 +9,6 @@ export const Container = styled.article`
   height: 80%;
   padding: 16px;
 
-  &:hover {
-    cursor: pointer;
-  }
 
   @media screen and (min-width: 600px) {
     height: 100%;
@@ -22,6 +19,10 @@ export const Container = styled.article`
   }
 
   .image-container {
+    &:hover {
+      cursor: pointer;
+    }
+
     width: 100%;
     height: 40%;
     background: url('${({ articleImage }) => articleImage}');
