@@ -16,11 +16,11 @@ const Languages = () => {
       <ul className='languages-list'>
         {languages.length > 0 && languages.map(language => (
           <li key={language.id} className='language'>
-            <CircularProgressbar value={l.proficiency} text={`${l.proficiency}%`}
+            <CircularProgressbar value={language.proficiency} text={`${language.proficiency}%`}
                                  styles={buildStyles({
                                    strokeLinecap: 'butt',
                                  })} />
-            <span>{l.name}</span>
+            <span>{language.name}</span>
           </li>))}
       </ul>
     </Container>
