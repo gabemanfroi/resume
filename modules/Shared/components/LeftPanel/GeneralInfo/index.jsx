@@ -11,7 +11,8 @@ const GeneralInfo = () => {
   return (
     <Container>
       <ul>
-        {additionalInformation.length && additionalInformation.map((info, index) => <li key={index} className='item'>
+        {additionalInformation.length > 0 && additionalInformation.map((info, index) => <li key={index}
+                                                                                            className='item'>
           <h6>{info.title}:</h6>
           <span>{info.description}</span>
         </li>)}

@@ -26,22 +26,26 @@ const EducationHistory = () => {
   return (
     <Container>
       <h2>Education</h2>
-      <VerticalTimeline layout={'1-column-right'} lineColor={'#191923'}>
+      {
+        educationHistoryItems.length > 0 &&
+        <VerticalTimeline layout={'1-column-right'} lineColor={'#191923'}>
 
-        {
-          educationHistoryItems.length && educationHistoryItems.map(item => (
-            <VerticalTimelineElement contentStyle={{ ...timelineContentStyle }}
-                                     contentArrowStyle={{ ...contentArrowStyle }}
-                                     className={'timeline-item-content'}
-                                     iconStyle={{ ...iconStyle }}>
-              <h5 className='timeline-header'>{item.institutionName}</h5>
-              <div className='time-range'>jan 2018 - may 2020</div>
-              <div className='description'>{item.graduationName}</div>
-            </VerticalTimelineElement>
+          {
+            educationHistoryItems.map(item => (
+              <VerticalTimelineElement contentStyle={{ ...timelineContentStyle }}
+                                       contentArrowStyle={{ ...contentArrowStyle }}
+                                       className={'timeline-item-content'}
+                                       iconStyle={{ ...iconStyle }}>
+                <h5 className='timeline-header'>{item.institutionName}</h5>
+                <div className='time-range'>jan 2018 - may 2020</div>
+                <div className='description'>{item.graduationName}</div>
+              </VerticalTimelineElement>
 
-          ))
-        }
-      </VerticalTimeline>
+            ))
+          }
+        </VerticalTimeline>
+      }
+
     </Container>
   );
 };

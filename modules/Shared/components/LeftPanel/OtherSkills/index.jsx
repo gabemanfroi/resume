@@ -13,7 +13,7 @@ const OtherSkills = () => {
     <Container>
       <h5>Other Skills</h5>
       {
-        techSkills.length && techSkills.map((skill, index) =>
+        techSkills.length > 0 && techSkills.map((skill, index) =>
           <OtherSkill
             key={index}>
             <FontAwesomeIcon icon={faCheck} size={'xs'} color='#3E98C7' />

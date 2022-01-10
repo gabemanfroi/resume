@@ -14,7 +14,7 @@ const Languages = () => {
     <Container>
       <h5>Languages</h5>
       <ul className='languages-list'>
-        {languages.length && languages.map((l, index) => (
+        {languages.length > 0 && languages.map((l, index) => (
           <li key={index} className='language'>
             <CircularProgressbar value={l.proficiency} text={`${l.proficiency}%`}
                                  styles={buildStyles({

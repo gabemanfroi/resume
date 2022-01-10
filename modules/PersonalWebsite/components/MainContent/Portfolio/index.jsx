@@ -12,7 +12,7 @@ const Portfolio = () => {
         My Projects
       </h3>
       <div className='projects-container'>
-        {projects.length && projects.map(project => (
+        {projects.length > 0 && projects.map(project => (
           <div key={project.id} className='project-item-container'>
 
             <a href={project.url} target='_blank' rel='noreferrer'>
