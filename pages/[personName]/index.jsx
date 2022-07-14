@@ -5,23 +5,24 @@ import { animated, Spring } from 'react-spring';
 import { PersonalWebsiteContainer } from '/modules/PersonalWebsite/style';
 import { MainContent } from '/modules/PersonalWebsite/components';
 
-import { WebsiteContentContext } from '/modules/PersonalWebsite/contexts/WebsiteContentContext';
+import { usePersonalWebsite } from '/modules/PersonalWebsite/contexts/PersonalWebsiteContext';
 import Sidebar from '/modules/PersonalWebsite/components/Sidebar';
-import { LoadingContext } from '/modules/Shared/contexts/LoadingContext';
-import { ScreenSizeContext } from '../../modules/Shared/contexts/ScreenSizeContext';
-import AppBar from '../../modules/Shared/components/AppBar';
-import LeftPanel from '../../modules/Shared/components/LeftPanel';
+import { useLoading } from '/modules/Shared/contexts/LoadingContext';
+import { useScreenSize } from 'modules/Shared/contexts/ScreenSizeContext';
+import AppBar from 'modules/Shared/components/AppBar';
+import LeftPanel from 'modules/Shared/components/LeftPanel';
 
 
 const PersonalWebsite = () => {
   const { personName } = useRouter().query;
-  const { screenSize } = useContext(ScreenSizeContext);
+  const { screenSize } =useScreenSize();
 
-  const { setCurrentPersonName, currentPersonContent } = useContext(WebsiteContentContext);
-  const { isLoading } = useContext(LoadingContext);
+  const { setCurrentPersonName, currentPersonContent } = usePersonalWebsite();
+  const { isLoading } = useLoading();
 
   useEffect(() => {
-    setCurrentPersonName(personName);
+    if(!Array.isArray(personName)) setCurrentPersonName(personName);
+
   }, [personName, setCurrentPersonName]);
 
 
@@ -37,7 +38,9 @@ const PersonalWebsite = () => {
           <Spring from={{ opacity: 0 }} to={{ opacity: 1 }} config={{ duration: 2000 }}>
             {styles =>
               <animated.div className='inner-container' style={styles}>
-                {screenSize <= 1024 && <AppBar />}
+                <>
+                  {screenSize <= 1024 && <AppBar />}
+                </>
                 <LeftPanel />
                 <MainContent />
                 <Sidebar />
