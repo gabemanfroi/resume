@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { PersonalWebsiteContext } from 'modules/PersonalWebsite/contexts/PersonalWebsiteContext';
+import { ResumeContext } from 'modules/Resume/contexts/ResumeContext';
 
 import SkillSection from '../SkillSection';
 
@@ -8,7 +8,7 @@ import { Container } from './style';
 
 const Coding = () => {
 
-  const { programmingLanguages } = useContext(PersonalWebsiteContext).currentPersonContent.resume;
+  const { programmingLanguages } = useContext(ResumeContext).currentPersonContent.resume;
 
   return (
     <Container>

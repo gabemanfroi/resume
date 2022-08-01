@@ -1,16 +1,14 @@
 import axios, { AxiosInstance } from 'axios';
-import { camelizeKeys } from 'humps';
 
-const AxiosClient = ():AxiosInstance => {
+const AxiosClient = (): AxiosInstance => {
   const axiosInstance = axios.create({
-    baseURL: 'http://localhost:8080',
+    baseURL: 'http://localhost:8001',
     headers: {
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin' : '*',
-    }
-  })
-  axiosInstance.interceptors.response.use(response => camelizeKeys(response.data), error => Promise.reject(error))
-  return axiosInstance
-}
+      'Access-Control-Allow-Origin': '*',
+    },
+  });
+  return axiosInstance;
+};
 
-export default AxiosClient
+export default AxiosClient();

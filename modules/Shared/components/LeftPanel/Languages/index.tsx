@@ -2,13 +2,13 @@ import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { useContext } from 'react';
 
-import { PersonalWebsiteContext } from 'modules/PersonalWebsite/contexts/PersonalWebsiteContext';
+import { ResumeContext } from 'modules/Resume/contexts/ResumeContext';
 
 import { Container } from './style';
 
 const Languages = () => {
 
-  const { languages } = useContext(PersonalWebsiteContext).currentPersonContent.resume;
+  const { languages } = useContext(ResumeContext).currentPersonContent.resume;
 
   return (
     <Container>

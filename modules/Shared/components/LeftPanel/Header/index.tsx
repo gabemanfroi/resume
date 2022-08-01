@@ -2,14 +2,14 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
 
-import { PersonalWebsiteContext } from 'modules/PersonalWebsite/contexts/PersonalWebsiteContext';
+import { ResumeContext } from 'modules/Resume/contexts/ResumeContext';
 import { ScreenSizeContext } from 'modules/Shared/contexts/ScreenSizeContext';
 import { LeftPanelContext } from 'modules/Shared/contexts/LeftPanelContext';
 
 import { AvatarContainer, Container } from './style';
 
 const Header = () => {
-  const { createdBy } = useContext(PersonalWebsiteContext).currentPersonContent;
+  const { createdBy } = useContext(ResumeContext).currentPersonContent;
   const { screenSize } = useContext(ScreenSizeContext);
   const { setIsActive } = useContext(LeftPanelContext);
   return (

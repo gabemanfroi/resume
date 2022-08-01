@@ -2,7 +2,7 @@ import { faFacebook, faGithub, faLinkedin, faTwitter } from '@fortawesome/free-b
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
 
-import { PersonalWebsiteContext } from '/modules/PersonalWebsite/contexts/PersonalWebsiteContext';
+import { ResumeContext } from '/modules/Resume/contexts/ResumeContext';
 
 import { Container } from './style';
 import { faFileAlt } from '@fortawesome/free-solid-svg-icons/faFileAlt';
@@ -14,7 +14,7 @@ const Footer = () => {
     twitter: faTwitter,
     facebook: faFacebook,
   };
-  const { currentPersonContent } = useContext(PersonalWebsiteContext);
+  const { currentPersonContent } = useContext(ResumeContext);
   const { websites, resumeFile } = currentPersonContent.createdBy;
 
   return (

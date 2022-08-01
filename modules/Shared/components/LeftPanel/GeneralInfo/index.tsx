@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 
-import { PersonalWebsiteContext } from 'modules/PersonalWebsite/contexts/PersonalWebsiteContext';
+import { ResumeContext } from 'modules/Resume/contexts/ResumeContext';
 
 import { Container } from './style';
 
 const GeneralInfo = () => {
-  const { currentPersonContent } = useContext(PersonalWebsiteContext);
+  const { currentPersonContent } = useContext(ResumeContext);
   const { additionalInformation } = currentPersonContent.createdBy;
 
   return (

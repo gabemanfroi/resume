@@ -2,12 +2,12 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
 
-import { PersonalWebsiteContext } from '/modules/PersonalWebsite/contexts/PersonalWebsiteContext';
+import { ResumeContext } from '/modules/Resume/contexts/ResumeContext';
 
 import { Container, OtherSkill } from './style';
 
 const OtherSkills = () => {
-  const { techSkills } = useContext(PersonalWebsiteContext).currentPersonContent.resume;
+  const { techSkills } = useContext(ResumeContext).currentPersonContent.resume;
 
   return (
     <Container>
