@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.article`
+export const Container = styled.article<{ articleImage: string }>`
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -27,20 +27,15 @@ export const Container = styled.article`
 
       button {
         font-size: 16px;
-        color: white;
         z-index: 999;
       }
     }
-
   }
 
   .article-image-container {
     height: 30%;
     width: 100%;
-    background: url('${({ articleImage }) => {
-      console.log(articleImage);
-      return articleImage;
-    }}');
+    background: url('${({ articleImage }) => articleImage}');
     background-size: cover;
     margin-bottom: 16px;
 
@@ -56,13 +51,11 @@ export const Container = styled.article`
     background: linear-gradient(159deg, #2d2d3a 0%, #2b2b35 100%);
     -webkit-box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%);
     box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%);
-    letter-spacing: .25px;
+    letter-spacing: 0.25px;
     font-size: 14px;
     color: #fafafc;
     line-height: 1.8;
     margin-bottom: 16px;
     word-wrap: break-word;
   }
-
-
 `;

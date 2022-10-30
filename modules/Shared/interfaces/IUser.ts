@@ -7,4 +7,7 @@ export interface IUser {
   city: string;
   country: string;
   pronouns: string;
+  profilePictureUrl: string;
+  age: number;
+  username: string;
 }

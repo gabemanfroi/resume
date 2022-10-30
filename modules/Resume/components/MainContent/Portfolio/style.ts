@@ -21,7 +21,7 @@ export const Container = styled.div`
       }
 
       @media screen and (min-width: 992px) {
-        flex: 1 0 33%
+        flex: 0.5 0 33%;
       }
 
       &::after {
@@ -32,17 +32,30 @@ export const Container = styled.div`
 
       .project-item {
         box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px 0;
-        background: #2C2C38;
+
         padding: 30px;
         height: 100%;
         width: 100%;
-        transition: opacity .55s;
+        transition: opacity 0.55s;
+        position: relative;
 
         &:hover {
           opacity: 0.5;
         }
+
+        &:after {
+          background: {
+            content: '';
+            position: absolute;
+            background: red;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+          },
+        }
       }
+
     }
   }
-
 `;

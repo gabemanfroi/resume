@@ -1,0 +1,5 @@
+const DIALOGS = {
+  CREATE_NEW_PROJECT: 'CREATE_NEW_PROJECT',
+};
+
+export default DIALOGS;

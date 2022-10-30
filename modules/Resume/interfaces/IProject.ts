@@ -4,9 +4,9 @@ export interface IProjectCategory {
 }
 
 export interface IProject {
-  id: number;
+  id?: number;
   title: string;
   url: string;
   imageUrl: string;
-
+  categoryId: number;
 }

@@ -13,14 +13,15 @@ export const Container = styled.section`
         margin: 0 0 5px 0;
         color: white;
         font-weight: 400;
+        flex: 0.3;
       }
 
-      h6, span {
+      * {
         font-size: 13px;
       }
 
       span {
-        color: #8C8C8E;
+        color: #8c8c8e;
       }
     }
   }

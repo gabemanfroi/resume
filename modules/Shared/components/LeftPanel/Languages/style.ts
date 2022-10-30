@@ -1,13 +1,11 @@
-import styled from 'styled-components';
+import { Stack, styled } from '@mui/material';
 
-export const Container = styled.section`
-
+export const Container = styled(Stack)`
   .languages-list {
     justify-content: space-around;
     display: flex;
     padding: 30px 0;
     border-bottom: 1px solid rgba(140, 140, 142, 0.3);
-
 
     .language {
       width: 20%;

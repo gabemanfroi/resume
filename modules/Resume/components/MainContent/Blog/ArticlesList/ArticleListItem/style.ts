@@ -1,14 +1,13 @@
 import styled from 'styled-components';
+import { colors } from 'modules/Shared/theme/colors';
 
-export const Container = styled.article`
-
+export const Container = styled.article<{ articleImage: string }>`
   display: flex;
   flex: 1 0 100%;
   flex-direction: column;
   margin-bottom: 30px;
   height: 80%;
   padding: 16px;
-
 
   @media screen and (min-width: 600px) {
     height: 100%;
@@ -48,7 +47,7 @@ export const Container = styled.article`
     flex-direction: column;
 
     .general {
-      background: #20202A;
+      background: #20202a;
       border-radius: 999px;
       margin-bottom: 8px;
       display: flex;
@@ -66,10 +65,9 @@ export const Container = styled.article`
       }
 
       span {
-        color: #8C8C8E;
+        color: #8c8c8e;
         font-weight: 500;
         font-size: 12px;
-
       }
     }
 
@@ -99,25 +97,22 @@ export const Container = styled.article`
       p.description {
         font-size: 13px;
         line-height: 1.7;
-        letter-spacing: .25px;
-        color: #8C8C8E;
+        letter-spacing: 0.25px;
+        color: #8c8c8e;
       }
 
       span.read-more {
         font-size: 12px;
-        color: #3E98C7;
+        color: ${colors.primaryBlue};
         letter-spacing: 1.25px;
         font-weight: 600;
         text-transform: uppercase;
       }
     }
-
-
   }
-
 `;
 
-export const Tag = styled.span`
+export const Tag = styled.span<{ tagColor: string }>`
   font-size: 12px;
   padding: 1%;
   border-radius: 8px;

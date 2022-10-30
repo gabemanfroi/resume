@@ -25,7 +25,6 @@ const LeftPanel = () => {
       <Footer />
     </Container>
   );
-
 };
 
 export default LeftPanel;

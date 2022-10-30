@@ -1,55 +1,56 @@
-import React, { createContext, Dispatch, SetStateAction, useContext, useEffect, useMemo, useState } from 'react';
+import React, {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 import { useLoading } from 'modules/Shared/contexts/LoadingContext';
-
-import { ResumeService } from 'modules/Resume/services';
+import { IResume } from 'modules/Resume/interfaces/IResume';
+import { useResumeQuery } from 'modules/Resume/hooks';
 
 interface WebsiteContentContextInterface {
-  currentPersonName: string | null;
-  setCurrentPersonName: Dispatch<SetStateAction<string | null>>;
-  currentPersonContent: any;
+  resume: IResume | null;
+  setResume: Dispatch<SetStateAction<IResume | null>>;
 }
 
 const WebsiteContentContextInitialValues = {
-  currentPersonName: '',
-  setCurrentPersonName: () => {
-  },
-  currentPersonContent: undefined,
+  resume: null,
+  setResume: () => {},
 };
 
-const ResumeContext = createContext<WebsiteContentContextInterface>(WebsiteContentContextInitialValues);
+const ResumeContext = createContext<WebsiteContentContextInterface>(
+  WebsiteContentContextInitialValues,
+);
 
 interface ResumeProps {
   children: React.ReactNode;
 }
 
 export const ResumeProvider: React.FC<ResumeProps> = ({ children }) => {
-  const [currentPersonName, setCurrentPersonName] = useState<string | null>('');
-  const [currentPersonContent, setCurrentPersonContent] = useState();
-  const { setIsLoading } = useLoading();
+  const [resume, setResume] = useState<IResume | null>(null);
+  const { setLoading } = useLoading();
+
+  const { findByUsernameIsLoading, findByUsernameData } = useResumeQuery();
 
   useEffect(() => {
-    if (!currentPersonName) return;
-    setIsLoading(true);
-    console.log(currentPersonName);
+    console.log('here');
+    if (findByUsernameData) setResume(findByUsernameData.data);
+  }, [findByUsernameData]);
 
-    ResumeService().getByUsername(currentPersonName).then((response) => {
-      //@ts-ignore
-      setCurrentPersonContent(response[0]);
-      setIsLoading(false);
-    });
-  }, [currentPersonName]);
-
-  const value = useMemo(() => ({
-    currentPersonContent,
-    currentPersonName,
-    setCurrentPersonName,
-  }), [currentPersonName, currentPersonContent]);
+  const value = useMemo(
+    () => ({
+      resume,
+      setResume,
+    }),
+    [resume],
+  );
 
   return (
-    <ResumeContext.Provider value={value}>
-      {children}
-    </ResumeContext.Provider>
+    <ResumeContext.Provider value={value}>{children}</ResumeContext.Provider>
   );
 };
 

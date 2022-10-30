@@ -1,19 +1,25 @@
 import CircularProgressBar from './CircularProgressBar';
 import LinearProgressBar from './LinearProgressBar';
 
-const Skill = ({ name, proficiency, type }) => {
+interface SkillProps {
+  name: string;
+  proficiency: number;
+  type: 'circular' | 'linear';
+}
+
+const Skill = ({ name, proficiency, type }: SkillProps) => {
   return (
     <>
-      {
-        type === 'circular' && <>
+      {type === 'circular' && (
+        <>
           <CircularProgressBar name={name} proficiency={proficiency} />
         </>
-      }
-      {
-        type === 'linear' && <>
+      )}
+      {type === 'linear' && (
+        <>
           <LinearProgressBar name={name} proficiency={proficiency} />
         </>
-      }
+      )}
     </>
   );
 };

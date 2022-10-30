@@ -1,11 +1,9 @@
 import { faFacebook, faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useContext } from 'react';
-
-import { ResumeContext } from '/modules/Resume/contexts/ResumeContext';
 
 import { Container } from './style';
 import { faFileAlt } from '@fortawesome/free-solid-svg-icons/faFileAlt';
+import { useResume } from 'modules/Resume/contexts';
 
 const Footer = () => {
   const iconsMapper = {
@@ -14,8 +12,11 @@ const Footer = () => {
     twitter: faTwitter,
     facebook: faFacebook,
   };
-  const { currentPersonContent } = useContext(ResumeContext);
-  const { websites, resumeFile } = currentPersonContent.createdBy;
+  const { resume } = useResume();
+
+  if (!resume) return <></>;
+
+  const { websites, resumeFile } = resume;
 
   return (
     <Container>
@@ -27,7 +28,11 @@ const Footer = () => {
       {
         websites.length > 0 && websites.map(website =>
           <a key={website.id} href={website.url} target='_blank' rel='noreferrer'>
-            <FontAwesomeIcon icon={iconsMapper[website.category.toLowerCase()]} />
+            <FontAwesomeIcon icon={iconsMapper[website.type.toLowerCase() as 'linkedin' |
+              'github' |
+              'twitter' |
+              'facebook']
+            } />
           </a>,
         )
       }

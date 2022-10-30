@@ -1,15 +1,12 @@
-import { useContext } from 'react';
-
 import ToggleButton from './ToggleButton';
 import { Container, NavContainer } from './style';
-import { SidebarContext } from '../../../Shared/contexts/SidebarContext';
-import { ScreenSizeContext } from '../../../Shared/contexts/ScreenSizeContext';
 import { animated, useSpring } from 'react-spring';
+import { useScreenSize, useSidebar } from 'modules/Shared/contexts';
 
 
 const Sidebar = () => {
-  const { isActive, setIsActive, setCurrentPage, currentPage, pages } = useContext(SidebarContext);
-  const { screenSize } = useContext(ScreenSizeContext);
+  const { isActive, setIsActive, setCurrentPage, currentPage, pages } = useSidebar();
+  const { screenSize } = useScreenSize();
 
   const isCurrentPageActive = (page) => {
     return page === currentPage ? 'is-active' : '';

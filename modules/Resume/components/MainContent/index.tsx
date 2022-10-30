@@ -1,20 +1,17 @@
 import { Container, Divider, HeroContent } from './style';
-import { useContext } from 'react';
-import { SidebarContext } from 'modules/Shared/contexts/SidebarContext';
-import { ScreenSizeContext } from '../../../Shared/contexts/ScreenSizeContext';
+import { useSidebar } from 'modules/Shared/contexts/SidebarContext';
 import Portfolio from './Portfolio';
 import HeroBanner from './HeroBanner';
-import { ResumeContext } from '../../contexts/ResumeContext';
 import Blog from './Blog';
 import MyHistory from './MyHistory';
-import { BlogProvider } from '../../contexts/BlogContext';
+import { BlogProvider, useResume } from 'modules/Resume/contexts';
+import { useScreenSize } from 'modules/Shared/contexts';
 
 
 const MainContent = () => {
-  const { isActive: isSidebarActive, currentPage } = useContext(SidebarContext);
-  const { screenSize } = useContext(ScreenSizeContext);
-  const { currentPersonContent } = useContext(ResumeContext);
-  const { backgroundImage } = currentPersonContent;
+  const { isActive: isSidebarActive, currentPage } = useSidebar();
+  const { screenSize } = useScreenSize();
+  const { resume } = useResume();
 
   const pagesMapper = {
     Portfolio: <Portfolio />,
@@ -37,12 +34,14 @@ const MainContent = () => {
   return (
     <>
       {
-        <Container backgroundImage={backgroundImage} isSidebarActive={isSidebarActive}>
+        <Container backgroundImage={''} isSidebarActive={isSidebarActive}>
           <div className='container-background' />
           {getBanner()}
           <HeroContent>
             {
-              pagesMapper[currentPage]
+              pagesMapper[currentPage as 'Portfolio' |
+                'Blog' |
+                'My History']
             }
           </HeroContent>
         </Container>}

@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.section`
-  h5 {
-    margin-bottom: 30px;
-  }
-`;
-
-export const OtherSkill = styled.div`
+export const Container = styled.div`
   display: flex;
   align-content: center;
   align-items: center;

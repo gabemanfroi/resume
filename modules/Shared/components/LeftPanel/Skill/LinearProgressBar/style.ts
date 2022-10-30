@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { colors } from 'modules/Shared/theme/colors';
 
-export const Container = styled.div`
+export const SkillContainer = styled.div`
   h6 {
     margin-bottom: 5px;
     font-family: Poppins, sans-serif;
     font-size: 13px;
-    color: #CACACE;
+    color: #cacace;
     font-weight: 400;
   }
 
@@ -14,24 +15,27 @@ export const Container = styled.div`
     justify-content: space-between;
   }
 
-
   margin-bottom: 15px;
 `;
 
-export const ProgressBar = styled.div`
+interface ProgressBarProps {
+  height: number;
+  proficiency: number;
+}
+
+export const ProgressBar = styled.div<ProgressBarProps>`
   width: 100%;
-  height: ${props => `${props.height}px`};
+  height: ${({ height }) => `${height}px`};
   background: #191923;
   position: relative;
 
   &:after {
-
     content: '';
     position: absolute;
     left: 0;
     top: 0;
     height: 100%;
-    width: ${props => `${props.proficiency}%`};
-    background: #3E98C7;
+    width: ${({ proficiency }) => `${proficiency}%`};
+    background: ${colors.primaryBlue};
   }
 `;

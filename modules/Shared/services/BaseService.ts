@@ -1,13 +1,16 @@
 import AxiosClient from 'modules/Shared/util/AxiosClient';
 
-
-export const BaseService = <T>(baseEndpoint: string) => {
+const BaseService = <T>(baseEndpoint: string) => {
   const axios = AxiosClient;
   return {
-    get: <T>(url = '') => axios.get<T>(`${baseEndpoint}${url}`),
-    post: <T>(url?: string, data?: T) =>
+    get: (url = '') => axios.get<T>(`${baseEndpoint}${url}`),
+    post: (url?: string, data?: T) =>
       axios.post(`${baseEndpoint}${url || ''}`, data),
-    delete: (url?: string) =>
-      axios.post(`${baseEndpoint}${url || ''}`),
+    postDynamic: <dT>(url?: string, data?: dT) =>
+      axios.post(`${baseEndpoint}${url || ''}`, data),
+    delete: (url?: string) => axios.post(`${baseEndpoint}${url || ''}`),
+    patch: (url?: string, data?: T) =>
+      axios.patch(`${baseEndpoint}${url || ''}`, data),
   };
 };
+export default BaseService;

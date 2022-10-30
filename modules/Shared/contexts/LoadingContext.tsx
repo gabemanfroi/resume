@@ -1,27 +1,44 @@
-import React, { createContext, Dispatch, SetStateAction, useContext, useMemo, useState } from 'react';
+import React, {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useMemo,
+  useState,
+} from 'react';
 import LoadingPage from '../components/LoadingPage';
+import { useIsFetching } from '@tanstack/react-query';
 
 interface LoadingContextInterface {
-  isLoading: boolean;
-  setIsLoading: Dispatch<SetStateAction<boolean>>;
+  loading: boolean;
+  setLoading: Dispatch<SetStateAction<boolean>>;
 }
 
-const loadingContextInitialValues:LoadingContextInterface = {
-  isLoading: false,
-  setIsLoading: () => {}
-}
+const loadingContextInitialValues: LoadingContextInterface = {
+  loading: false,
+  setLoading: () => {},
+};
 
-const LoadingContext = createContext<LoadingContextInterface>(loadingContextInitialValues);
+const LoadingContext = createContext<LoadingContextInterface>(
+  loadingContextInitialValues,
+);
 
 interface LoadingProviderInterface {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
-export const LoadingProvider: React.FC<LoadingProviderInterface> = ({ children }) => {
+export const LoadingProvider: React.FC<LoadingProviderInterface> = ({
+  children,
+}) => {
+  const [loading, setLoading] = useState(false);
+  const isFetching = useIsFetching();
 
-  const [isLoading, setIsLoading] = useState(false);
+  const isLoading = useMemo(
+    () => loading || !!isFetching,
+    [loading, isFetching],
+  );
 
-  const value = useMemo(() => ({isLoading, setIsLoading}), [isLoading])
+  const value = useMemo(() => ({ loading, setLoading }), [loading]);
 
   return (
     <LoadingContext.Provider value={value}>
@@ -29,7 +46,6 @@ export const LoadingProvider: React.FC<LoadingProviderInterface> = ({ children }
       {children}
     </LoadingContext.Provider>
   );
+};
 
-}
-
-export const useLoading = () => useContext(LoadingContext)
+export const useLoading = () => useContext(LoadingContext);

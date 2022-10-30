@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.aside`
+export const Container = styled.aside<{ screenSize: number, isActive: boolean }>`
   height: 100%;
 
   background: #20202A;
@@ -36,7 +36,7 @@ export const Container = styled.aside`
   }
 `;
 
-export const NavContainer = styled.nav`
+export const NavContainer = styled.nav<{ isActive: boolean }>`
   width: 100%;
   padding: 16px;
 
@@ -57,8 +57,7 @@ export const NavContainer = styled.nav`
       &.is-active, &:hover {
         color: #fafafc;
         text-shadow: 0 0 3px rgb(250 250 252 / 40%);
-
-
+        
       }
     }
   }

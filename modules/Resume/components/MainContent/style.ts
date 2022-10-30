@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.main`
+export const Container = styled.main<{ backgroundImage: string, isSidebarActive: boolean }>`
   position: relative;
   width: 100%;
   padding: 16px;

@@ -1,4 +1,11 @@
-import React, { createContext, Dispatch, SetStateAction, useContext, useMemo, useState } from 'react';
+import React, {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useMemo,
+  useState,
+} from 'react';
 
 interface LeftPanelInterface {
   isActive: boolean;
@@ -7,23 +14,29 @@ interface LeftPanelInterface {
 
 const leftPanelInitialValues: LeftPanelInterface = {
   isActive: false,
-  setIsActive: () => {
-  },
+  setIsActive: () => {},
 };
 
-const LeftPanelContext = createContext<LeftPanelInterface>(leftPanelInitialValues);
+export const LeftPanelContext = createContext<LeftPanelInterface>(
+  leftPanelInitialValues,
+);
 
 interface LeftPanelProvider {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
-export const LeftPanelProvider: React.FC<LeftPanelProvider> = ({ children }) => {
+export const LeftPanelProvider: React.FC<LeftPanelProvider> = ({
+  children,
+}) => {
   const [isActive, setIsActive] = useState(false);
 
-  const value = useMemo(() => ({
-    isActive,
-    setIsActive,
-  }), [isActive]);
+  const value = useMemo(
+    () => ({
+      isActive,
+      setIsActive,
+    }),
+    [isActive],
+  );
 
   return (
     <LeftPanelContext.Provider value={value}>

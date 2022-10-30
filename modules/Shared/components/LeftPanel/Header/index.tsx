@@ -1,30 +1,19 @@
-import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useContext } from 'react';
-
-import { ResumeContext } from 'modules/Resume/contexts/ResumeContext';
-import { ScreenSizeContext } from 'modules/Shared/contexts/ScreenSizeContext';
-import { LeftPanelContext } from 'modules/Shared/contexts/LeftPanelContext';
-
-import { AvatarContainer, Container } from './style';
+import { Container } from './style';
+import Form from 'modules/Shared/components/LeftPanel/Header/Form';
+import { useEditMode } from 'modules/Shared/hooks';
+import ButtonGroup from 'modules/Shared/components/LeftPanel/Header/ButtonGroup';
+import Presentation from 'modules/Shared/components/LeftPanel/Header/Presentation';
 
 const Header = () => {
-  const { createdBy } = useContext(ResumeContext).currentPersonContent;
-  const { screenSize } = useContext(ScreenSizeContext);
-  const { setIsActive } = useContext(LeftPanelContext);
+  const { isEditMode } = useEditMode();
+
   return (
     <Container>
-      <AvatarContainer createdBy={createdBy} />
-      <span>{createdBy.firstName} {createdBy.lastName}</span>
-      <span>{createdBy.professionalTitle}</span>
-      {screenSize < 1440 &&
-        (<button onClick={() => setIsActive(false)}>
-          <FontAwesomeIcon icon={faTimes} />
-        </button>)
-      }
+      {!isEditMode && <Presentation />}
+      {isEditMode && <Form />}
+      <ButtonGroup />
     </Container>
   );
-
 };
 
 export default Header;
